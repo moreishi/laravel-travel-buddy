@@ -17,13 +17,13 @@
 		<row class="col-8">
 			<ul>
 				<li>City, County: {{ $user->city }}, {{ $user->country }}</li>
-				<li>Nationality: {{ $user->nationality }}  <natinality></natinality> </li>
+				<li>Nationality: {{ $nationality }}  <natinality></natinality> </li>
 				<li>Sex: {{ $user->sex }}</li>
 				<li>Language:</li>
-				<li>Height: {{ $user->height }}</li>
-				<li>Body Type: {{ $user->bodytype }}</li>
-				<li>Eyes: {{ $user->eyes }}</li>
-				<li>Hair: {{ $user->hair }}</li>
+				<li>Height: {{ $height }}</li>
+				<li>Body Type: {{ $bodytype }}</li>
+				<li>Eyes: {{ $eyes }}</li>
+				<li>Hair: {{ $hair }}</li>
 				<li>Looking For:</li>
 				<li>Wants to visit:</li>
 			</ul>

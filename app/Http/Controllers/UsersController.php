@@ -57,7 +57,13 @@ class UsersController extends Controller
         event(new ProfileVisited(Auth::user(),$id));
 
         $user = User::find($id);
-        return view('users.show',['user' => $user]);
+        return view('users.show',[
+            'height' => $this->setHeight($user->height) ,
+            'bodytype' => $this->setBody($user->bodytype) ,
+            'eyes' => $this->setEyes($user->eyes) ,
+            'hair' => $this->setHair($user->hair) ,
+            'nationality' => $this->setNationality($user->nationality) ,
+            'user' => $user]);
 
     }
 
@@ -136,4 +142,47 @@ class UsersController extends Controller
         $user = Auth::user();
         return view('users.profile',['user' => $user]);
     }
+
+    private function setBody($value) {
+        $bodytype = Config('bodytype');
+        foreach($bodytype as $b) {
+            if($value == $b['value'])
+                return $b['name'];
+        }
+        return "";
+    }
+    private function setHair($value) {
+        $hair = Config('hair');
+        foreach($hair as $h) {
+            if($value == $h['value'])
+                return $h['name'];
+        }
+        return "";
+    }
+    private function setEyes($value) {
+        $eyes = Config('eyes');
+        foreach($eyes as $e) {
+            if($value == $e['value'])
+                return $e['name'];
+        }
+        return "";
+    }
+    private function setHeight($value) {
+        $height = Config('height');
+        foreach($height as $h) {
+            if($value == $h['value'])
+                return $h['name'];
+        }
+        return "";
+    }
+
+    private function setNationality($value) {
+        $nationality = Config('nationality');
+        foreach($nationality as $n) {
+            if($value == $n['value'])
+                return $n['name'];
+        }
+        return "";
+    }
+
 }
