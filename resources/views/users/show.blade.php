@@ -16,7 +16,7 @@
 		</row>
 		<row class="col-8">
 			<ul>
-				<li>City, County: {{ $user->city }}, {{ $user->country }}</li>
+				<li>City, County: {{ $user->location }}</li>
 				<li>Nationality: {{ $nationality }}  <natinality></natinality> </li>
 				<li>Sex: {{ $user->sex }}</li>
 				<li>Language:</li>
@@ -41,5 +41,7 @@
 		</div>
 
 	</div>
+	
+	
 	
 @endsection

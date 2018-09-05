@@ -23,9 +23,6 @@
 
 			  <div class="form-group">
 			    <label for="nationality">Nationality</label>
-
-
-
 			    <select name="nationality" class="form-control" id="nationality">
 					@foreach($nationality as $n)
 
@@ -95,7 +92,6 @@
 					@endforeach
 			    </select>
 			  </div>
-			  <input type="hidden" name="location" value="NULL">
 
 			  <div class="form-group">
 			    <label for="hair">{{ __('About') }}</label>

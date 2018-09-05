@@ -83,6 +83,7 @@ class UsersController extends Controller
         $eyes = Config('eyes');
         $hair = Config('hair');
 
+
         return view('users.edit',[
             'heights' => $heights,
             'user' => $user,
@@ -115,6 +116,8 @@ class UsersController extends Controller
        $user->birthdate = $request->birthdate;
 
        $notification = 'NO';
+
+
 
        if(in_array($request->notification,['on','checked',true])) $notification = 'YES';
 
