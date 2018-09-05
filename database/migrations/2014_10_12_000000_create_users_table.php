@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('birthdate')->nullable();
             $table->text('about')->nullable();
             $table->enum('notification',['YES','NO'])->default('YES');
             $table->rememberToken();

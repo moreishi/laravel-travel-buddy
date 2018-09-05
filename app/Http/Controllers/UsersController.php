@@ -71,7 +71,20 @@ class UsersController extends Controller
     {   
         if(empty($id)) return redirect()->route('home');
         $user = User::find($id);
-        return view('users.edit',['user' => $user]);
+        $nationality = Config('nationality');
+        $heights = Config('height');
+        $bodytype = Config('bodytype');
+        $eyes = Config('eyes');
+        $hair = Config('hair');
+
+        return view('users.edit',[
+            'heights' => $heights,
+            'user' => $user,
+            'bodytype' => $bodytype,
+            'eyes' => $eyes,
+            'hair' => $hair,
+            'nationality' => $nationality
+        ]);
     }
 
     /**
@@ -93,6 +106,7 @@ class UsersController extends Controller
        $user->eyes = $request->eyes;
        $user->hair = $request->hair;
        $user->about = $request->about;
+       $user->birthdate = $request->birthdate;
 
        $notification = 'NO';
 
