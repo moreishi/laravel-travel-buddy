@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use App\Visitor;
+use App\Events\ProfileVisited;
 
 class UsersController extends Controller
 {
@@ -15,8 +17,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $count = User::count();
+        $users = User::where('id','!=',Auth::user()->id);
+        $count = $users->count();
+        $users = $users->get();
         return view('users.index',['users' => $users,'count' => $count]);
     }
 
@@ -49,8 +52,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-
         if(empty($id)) return redirect(route('home'));
+
+        event(new ProfileVisited(Auth::user(),$id));
 
         $user = User::find($id);
         return view('users.show',['user' => $user]);
