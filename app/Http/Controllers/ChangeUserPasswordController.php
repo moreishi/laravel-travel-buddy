@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Hash;
 use App\User;
+use App\Events\PasswordChanged;
 
 class ChangeUserPasswordController extends Controller
 {
@@ -34,6 +35,8 @@ class ChangeUserPasswordController extends Controller
                 $user = User::find($user->id);
                 $user->password = Hash::make($newPassword);
                 $user->save();
+
+                event(new PasswordChanged(User::find($user->id)));
 
                 return redirect()->route('edit-password');
             } else {
