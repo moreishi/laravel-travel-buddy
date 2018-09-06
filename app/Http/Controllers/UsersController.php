@@ -137,6 +137,12 @@ class UsersController extends Controller
         //
     }
 
+    public function editEmail()
+    {
+        $user = Auth::user();
+        return view('users.email',['user' => $user]);
+    }
+
     public function profile()
     {
         $user = Auth::user();
