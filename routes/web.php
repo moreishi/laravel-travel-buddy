@@ -26,8 +26,9 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/profile/edit', 'UsersController@profile')->name('profile');
 	Route::get('/profile/edit/email', 'UsersController@editEmail')->name('edit-profile-email');
 	Route::post('/profile/edit/email', 'UsersController@editEmail')->name('edit-profile-email');
+	Route::get('/profile/edit/password','ChangeUserPasswordController@index')->name('edit-password');
+	Route::post('/profile/edit/password','ChangeUserPasswordController@index')->name('edit-password');
 	Route::get('/profile/edit/{id}', 'UsersController@edit')->name('edit-profile');
 	Route::post('/profile/edit', 'UsersController@update')->name('edit-profile');
 	Route::get('/profile/views','VisitorsController@index');
-
 });

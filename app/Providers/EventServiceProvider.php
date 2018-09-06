@@ -24,7 +24,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\EmailConfig' => [
             'App\Listeners\EmailConfig\saveProfileEmail'
-        ],
+        ]
     ];
 
     /**
