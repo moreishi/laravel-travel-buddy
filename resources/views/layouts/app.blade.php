@@ -83,16 +83,5 @@
             @yield('content')
         </main>
     </div>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUatbz3Di8LeWM_ymKwCKqkrtmlQ3ulEw&libraries=places"></script>
-    <script>
-            function initialize() {
-              var input = document.getElementById('location');
-              var options = {
-                types: ['(cities)'] //this should work !
-              };
-              var autocomplete = new google.maps.places.Autocomplete(input,options);
-           }
-           google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
 </body>
 </html>
