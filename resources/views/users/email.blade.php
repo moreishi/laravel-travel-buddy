@@ -15,13 +15,20 @@
 
 			  <div class="form-group">
 				  	<div class="form-check">
-					  <input class="form-check-input" type="checkbox" name="box1" id="box1">
+					  <input class="form-check-input" 
+					  		 type="checkbox" 
+					  		 name="email_a" 
+					  		 id="box1" {{ $configuration["email_a"] }} >
+
 					  <label class="form-check-label" for="box1">
 					        I want to get email notifications about new messages
 					  </label>
 					</div>
 					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" name="box2" id="box2">
+					  <input class="form-check-input" 
+					  		 type="checkbox" 
+					  		 name="email_b" 
+					  		 id="box2" {{ $configuration["email_b"] }} >
 					  <label class="form-check-label" for="box2">
 					    	I want to get email about notifications
 					  </label>

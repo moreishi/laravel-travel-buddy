@@ -7,6 +7,8 @@ use App\User;
 use Auth;
 use App\Visitor;
 use App\Events\ProfileVisited;
+use App\Events\EmailConfig;
+use App\Configuration;
 
 class UsersController extends Controller
 {
@@ -137,10 +139,24 @@ class UsersController extends Controller
         //
     }
 
-    public function editEmail()
+    public function editEmail(Request $request)
     {
-        $user = Auth::user();
-        return view('users.email',['user' => $user]);
+
+        $configuration = Configuration::all();
+        $email_a = (in_array($configuration[0]['value'],['YES'])) ? 'checked="checked"' : '';
+        $email_b = (in_array($configuration[1]['value'],['YES'])) ? 'checked="checked' : '';
+
+        $user = User::find(Auth::user()->id);
+        if ($request->isMethod('post')) {
+            event(new EmailConfig($user, $request));
+            return redirect()->route('edit-profile-email');
+        }        
+        return view('users.email',[
+            'configuration' => [
+                'email_a' => $email_a,
+                'email_b' => $email_b
+            ],
+            'user' => $user]);
     }
 
     public function profile()

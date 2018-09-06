@@ -16,8 +16,14 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             
         ],
+        'App\Events\UserRegistered' => [
+            'App\Listeners\UserRegistered\addConfig'
+        ],
         'App\Events\ProfileVisited' => [
             'App\Listeners\ProfileVisited\addVisitor'
+        ],
+        'App\Events\EmailConfig' => [
+            'App\Listeners\EmailConfig\saveProfileEmail'
         ],
     ];
 

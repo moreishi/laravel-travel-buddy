@@ -31,4 +31,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Visitor');
     }
 
+    public function configurations() {
+        return $this->hasMany('App\Configuration');
+    }
+
 }
