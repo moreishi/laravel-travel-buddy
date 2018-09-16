@@ -17,17 +17,13 @@ class EventServiceProvider extends ServiceProvider
             
         ],
         'App\Events\UserRegistered' => [
-            'App\Listeners\UserRegistered\addConfig',
-            'App\Listeners\Notifications\SendWelcomEmail'
+            'App\Listeners\UserRegistered\addConfig'
         ],
         'App\Events\ProfileVisited' => [
             'App\Listeners\ProfileVisited\addVisitor'
         ],
         'App\Events\EmailConfig' => [
             'App\Listeners\EmailConfig\saveProfileEmail'
-        ],
-        'App\Events\PasswordChanged' => [
-            'App\Listeners\Notifications\SendPasswordNotication'
         ]
     ];
 
