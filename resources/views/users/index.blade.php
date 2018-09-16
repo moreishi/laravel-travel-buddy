@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 
-	<div class="container">
+	<!-- <div class="container">
 		<h1>Users <em>{{ $count }}</em></h1>
 		<div class="row">
 			@foreach($users as $user)
@@ -19,7 +19,7 @@
 			@endforeach
 		</div>
 
-	</div>
+	</div> -->
 
 	
 @endsection
